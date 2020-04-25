@@ -1,0 +1,15 @@
+{
+  "name": "yarn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pixxstudios/my-info-ui.git",
+  "author": "Gagandeep Singh <gagan.ddun@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.7.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "rollup -c"
+  }
+}
