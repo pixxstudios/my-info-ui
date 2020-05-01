@@ -20,6 +20,7 @@
     "start:dev": "webpack-dev-server",
     "build": "webpack",
     "server": "node ./server/server.js",
+    "test": "yarn test",
     "start": "concurrently \"webpack-dev-server\" \"nodemon ./server/server.js\""
   },
   "dependencies": {
