@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+    build:
+        working_directory: ~
+        docker:
+            - image: circleci/node:12.13.1
+        steps:
+            - checkout
+            - run:
+                name: test
+                command: 'yarn test'
