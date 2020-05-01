@@ -7,5 +7,8 @@ jobs:
         steps:
             - checkout
             - run:
+                name: yarn add
+                command: yarn add
+            - run:
                 name: test
                 command: 'yarn test'
