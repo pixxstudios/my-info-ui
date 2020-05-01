@@ -7,8 +7,8 @@ jobs:
         steps:
             - checkout
             - run:
-                name: yarn add
-                command: 'yarn add'
+                name: install packages
+                command: 'yarn'
             - run:
                 name: test
                 command: 'yarn test'
