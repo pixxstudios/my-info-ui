@@ -20,12 +20,13 @@
     "start:dev": "webpack-dev-server",
     "build": "webpack",
     "server": "node ./server/server.js",
-    "test": "yarn test",
+    "test": "jest",
     "start": "concurrently \"webpack-dev-server\" \"nodemon ./server/server.js\""
   },
   "dependencies": {
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
+    "jest": "^25.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
