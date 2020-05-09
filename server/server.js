@@ -1,7 +1,5 @@
 const express = require('express');
-const db = require('./db.config');
-
-// console.log('db ', db);
+require('./db.config');
 
 const {
     userRoutes
@@ -9,11 +7,14 @@ const {
 
 const app = express();
 
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.use(userRoutes);
+
 app.get('/', (req, res) => {
     res.send('hey');
 });
-
-app.use(userRoutes);
 
 app.listen(9001, () => {
     console.log('Listening at port 9001');
