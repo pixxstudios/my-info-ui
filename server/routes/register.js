@@ -6,13 +6,15 @@ const saltRounds = 10;
 
 registerRoute.post('/register', (req, res) => {
     const user = new User({
-        username: 'Gagan',
+        email: 'Gagan',
         password: '123'
     });
 
     brcypt.hash('123', saltRounds, (err, hash) => {
         console.log('hashed password ', hash);
     });
+
+
 
     user.save()
     .then(response => {
