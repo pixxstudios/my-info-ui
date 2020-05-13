@@ -13,10 +13,7 @@ registerRoute.post('/register', async (req, res) => {
     // encrypt the password
     bcrypt.hash(password, saltRounds)
         .then(hash => {
-            console.log('hash ', hash);
             password = hash;
-
-            console.log('password >> ', password);
 
             const user = new User({
                 email,
@@ -24,23 +21,29 @@ registerRoute.post('/register', async (req, res) => {
             });
 
             // check if user exists
-            User.findOne({ email })
-            .then(response => {
-                console.log('find..... ', response);
-            });
-
-            // save user in db
-            user.save()
-                .then(response => {
-                    console.log('response ', response);
-                    res.status(200).json({
-                        message: 'Register successful'
-                    });
+            User.findOne({
+                    email
                 })
-                .catch(error => {
-                    res.status(400).json({
-                        error
-                    });
+                .then(response => {
+                    if (response !== null) {
+                        res.status(200).json({
+                            message: 'Email already exists.'
+                        });
+                    } else {
+                        // save user in db
+                        user.save()
+                            .then(response => {
+                                console.log('response ', response);
+                                res.status(200).json({
+                                    message: 'Register successful'
+                                });
+                            })
+                            .catch(error => {
+                                res.status(400).json({
+                                    error
+                                });
+                            });
+                    }
                 });
         });
 });
