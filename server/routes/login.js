@@ -6,9 +6,9 @@ loginRoute.get('/login', (req, res) => {
         username: 'Gagan',
         password: '123'
     });
+
     user.save()
     .then(response => {
-        console.log('response ', response);
         res.status(200).json({
             message: 'Login successful'
         });

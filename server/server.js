@@ -2,7 +2,8 @@ const express = require('express');
 require('./db.config');
 
 const {
-    userRoutes
+    loginRoute,
+    registerRoute
 } = require('./routes/routes');
 
 const app = express();
@@ -10,7 +11,8 @@ const app = express();
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-app.use(userRoutes);
+app.use(loginRoute);
+app.use(registerRoute);
 
 app.get('/', (req, res) => {
     res.send('hey');
