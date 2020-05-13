@@ -1,7 +1,7 @@
-const userRoutes = require('express').Router();
+const loginRoute = require('express').Router();
 const { User } = require('../schemas/schemas');
 
-userRoutes.get('/login', (req, res) => {
+loginRoute.get('/login', (req, res) => {
     const user = new User({
         username: 'Gagan',
         password: '123'
@@ -20,9 +20,4 @@ userRoutes.get('/login', (req, res) => {
     });
 });
 
-userRoutes.post('/register', (req, res) => {
-    console.log(req.body);
-    res.send('register');
-});
-
-module.exports = userRoutes;
+module.exports = loginRoute;
