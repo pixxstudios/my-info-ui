@@ -1,33 +1,48 @@
 const registerRoute = require('express').Router();
-const brcypt = require('bcrypt');
-const { User } = require('../schemas/schemas');
+const bcrypt = require('bcrypt');
+const {
+    User
+} = require('../schemas/schemas');
 
 const saltRounds = 10;
 
-registerRoute.post('/register', (req, res) => {
-    const user = new User({
-        email: 'Gagan',
-        password: '123'
-    });
+registerRoute.post('/register', async (req, res) => {
+    let password = req.body.password;
+    const email = req.body.email;
 
-    brcypt.hash('123', saltRounds, (err, hash) => {
-        console.log('hashed password ', hash);
-    });
+    // encrypt the password
+    bcrypt.hash(password, saltRounds)
+        .then(hash => {
+            console.log('hash ', hash);
+            password = hash;
 
+            console.log('password >> ', password);
 
+            const user = new User({
+                email,
+                password
+            });
 
-    user.save()
-    .then(response => {
-        console.log('response ', response);
-        res.status(200).json({
-            message: 'Register successful'
+            // check if user exists
+            User.findOne({ email })
+            .then(response => {
+                console.log('find..... ', response);
+            });
+
+            // save user in db
+            user.save()
+                .then(response => {
+                    console.log('response ', response);
+                    res.status(200).json({
+                        message: 'Register successful'
+                    });
+                })
+                .catch(error => {
+                    res.status(400).json({
+                        error
+                    });
+                });
         });
-    })
-    .catch(error => {
-        res.status(400).json({
-            error
-        });
-    });
 });
 
 module.exports = registerRoute;
