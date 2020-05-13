@@ -4,14 +4,14 @@ const {
     User
 } = require('../schemas/schemas');
 
-const saltRounds = 10;
+const SALT_ROUNDS = 10;
 
 registerRoute.post('/register', async (req, res) => {
     let password = req.body.password;
     const email = req.body.email;
 
     // encrypt the password
-    bcrypt.hash(password, saltRounds)
+    bcrypt.hash(password, SALT_ROUNDS)
         .then(hash => {
             password = hash;
 
@@ -33,7 +33,6 @@ registerRoute.post('/register', async (req, res) => {
                         // save user in db
                         user.save()
                             .then(response => {
-                                console.log('response ', response);
                                 res.status(200).json({
                                     message: 'Register successful'
                                 });
