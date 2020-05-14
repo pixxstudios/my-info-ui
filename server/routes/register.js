@@ -6,9 +6,15 @@ const {
 
 const SALT_ROUNDS = 10;
 
-registerRoute.post('/register', async (req, res) => {
+registerRoute.post('/register', async (req, res, next) => {
     let password = req.body.password;
     const email = req.body.email;
+
+    if (!email.trim().length || !password.trim().length) {
+        return res.status(422).json({
+            error: 'Email and password cannot be empty'
+        });
+    }
 
     // encrypt the password
     bcrypt.hash(password, SALT_ROUNDS)
@@ -26,8 +32,8 @@ registerRoute.post('/register', async (req, res) => {
                 })
                 .then(response => {
                     if (response !== null) {
-                        res.status(200).json({
-                            message: 'Email already exists.'
+                        res.status(422).json({
+                            error: 'Email already exists.'
                         });
                     } else {
                         // save user in db
