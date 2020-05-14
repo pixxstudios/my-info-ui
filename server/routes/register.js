@@ -38,7 +38,7 @@ registerRoute.post('/register', async (req, res, next) => {
                     } else {
                         // save user in db
                         user.save()
-                            .then(response => {
+                            .then(() => {
                                 res.status(200).json({
                                     message: 'Register successful'
                                 });

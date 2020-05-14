@@ -1,6 +1,6 @@
 # my-info-ui
 
-// user can register
+// user can register *
 // user can login
 // forgot/reset password
 // user can update details
