@@ -1,7 +1,9 @@
+require('dotenv').config();
 const loginRoute = require('express').Router();
+const jwt = require('jsonwebtoken');
 const { User } = require('../schemas/schemas');
 
-loginRoute.get('/login', (req, res) => {
+loginRoute.post('/login', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -13,7 +15,11 @@ loginRoute.get('/login', (req, res) => {
 
     User.findOne({ email })
     .then(response => {
-        console.log('response ', response);
+        const { _id } = response;
+        const token = jwt.sign({ id: _id }, process.env.TOKEN_SECRET);
+        res.status(200).json({
+            authToken: token
+        });
     })
     .catch(err => {
         res.status(400).send(err);
