@@ -2,9 +2,17 @@ require('dotenv').config();
 const loginRoute = require('express').Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
+require('../services/passport');
 const {
     User
 } = require('../schemas/schemas');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
+
+loginRoute.get('/login', requireAuth, (req, res) => {
+    res.send('hi there');
+});
 
 loginRoute.post('/login', (req, res, next) => {
     const email = req.body.email;
@@ -38,9 +46,10 @@ loginRoute.post('/login', (req, res, next) => {
                         } = response;
                         const token = jwt.sign({
                             id: _id
-                        }, process.env.TOKEN_SECRET);
+                        }, process.env.TOKEN_SECRET,
+                        { expiresIn: '18000s' });
                         res.status(200).json({
-                            authToken: token
+                            token
                         });
                     }
                 })
