@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
     res.send('hey');
 });
 
+app.use('*', () => {
+    res.status(404).send('invalid url')
+});
+
 app.listen(9001, () => {
     console.log('Listening at port 9001');
 });

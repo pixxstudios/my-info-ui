@@ -8,7 +8,7 @@ const {
     User
 } = require('../schemas/schemas');
 
-const requireAuth = passport.authenticate('jwt', { session: false });
+const requireAuth = passport.authenticate('jwt',{ session: false });
 
 loginRoute.get('/login', requireAuth, (req, res) => {
     res.send('hi there');
@@ -56,7 +56,7 @@ loginRoute.post('/login', (req, res, next) => {
                 .catch(err => console.log('error ', err));
         })
         .catch(err => {
-            res.status(400).send(err);
+            res.status(400).send('error');
         })
 });
 
