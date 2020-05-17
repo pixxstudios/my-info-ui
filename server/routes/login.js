@@ -9,8 +9,9 @@ const {
 } = require('../schemas/schemas');
 
 const requireAuth = passport.authenticate('jwt',{ session: false });
+const requireSignIn = passport.authenticate('local', { session: false });
 
-loginRoute.get('/login', requireAuth, (req, res) => {
+loginRoute.get('/login', requireSignIn, (req, res) => {
     res.send('hi there');
 });
 
