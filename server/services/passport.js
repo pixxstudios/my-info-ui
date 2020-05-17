@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const {
     User
@@ -11,6 +12,23 @@ const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromHeader('token'),
     secretOrKey: process.env.TOKEN_SECRET
 };
+
+const localOptions = {
+    usernameField: 'email'
+};
+
+// local strategy
+const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
+    User.findOne({ email }, function(err, user) {
+        if (err) { return(done(err)); }
+
+        if (!user) {
+            return done(null, false);
+        }
+
+        // compare passwords
+    });
+});
 
 // jwt strategy
 const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
@@ -31,3 +49,4 @@ const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 });
 
 passport.use(jwtLogin);
+passport.use(localLogin);
