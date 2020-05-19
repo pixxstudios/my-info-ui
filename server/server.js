@@ -6,7 +6,8 @@ require('./db.config');
 
 const {
     loginRoute,
-    registerRoute
+    registerRoute,
+    fileUploadRoute
 } = require('./routes/routes');
 
 const app = express();
@@ -23,8 +24,10 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// handle different routes
 app.use(loginRoute);
 app.use(registerRoute);
+app.use(fileUploadRoute);
 
 app.get('/', (req, res) => {
     res.send('hey');
