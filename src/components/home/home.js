@@ -1,5 +1,6 @@
 import React from 'react';
+import FileUploader from '../uploader/uploader';
 
-const Home = () => <h3>Home</h3>;
+const Home = () => <FileUploader />;
 
 export default Home;
