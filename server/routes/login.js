@@ -8,14 +8,9 @@ const {
     User
 } = require('../schemas/schemas');
 
-const requireAuth = passport.authenticate('jwt',{ session: false });
 const requireSignIn = passport.authenticate('local', { session: false });
 
-loginRoute.get('/login', requireSignIn, (req, res) => {
-    res.send('hi there');
-});
-
-loginRoute.post('/login', (req, res, next) => {
+loginRoute.post('/login', requireSignIn,  (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
