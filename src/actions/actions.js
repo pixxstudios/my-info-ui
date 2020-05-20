@@ -1,11 +1,10 @@
-import thunk from 'redux-thunk';
 import axios from 'axios';
 
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 
-export const onSignupRequest = async () => {
-    await axios.get('http://localhost:9001/test')
-    .then(res => console.log(res))
+export const onSignupRequest = () => {
+    axios.get('http://localhost:9001/test')
+    .then(res => console.log(res.data))
     .catch(err => console.log(err))
 
     return (dispatch) => dispatch({

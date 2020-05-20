@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStore, applyMiddleware } from 'redux'; 
+import { createStore, applyMiddleware, compose } from 'redux'; 
 import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
@@ -8,9 +8,12 @@ import { BrowserRouter } from 'react-router-dom';
 import MyInfoReducer from './reducers/reducer';
 import App from './app';
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+
 const store = createStore(
     MyInfoReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+    composeEnhancer(applyMiddleware(thunk))
+    );
 
 ReactDOM.render(
     <Provider store={store}>
