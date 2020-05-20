@@ -11,7 +11,7 @@ const Signup = () => {
     const handleOnSubmit = e => {
         e.preventDefault();
         
-        dispatch(onSignupRequest);
+        onSignupRequest();
         console.log('handleOnSubmit');
     };
 

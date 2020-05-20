@@ -2,6 +2,7 @@ const express = require('express');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const cors = require('cors');
 require('./db.config');
 
 const {
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(cors());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,

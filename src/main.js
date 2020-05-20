@@ -1,7 +1,9 @@
 import React from 'react';
-import { createStore } from 'redux'; 
+import { createStore, applyMiddleware } from 'redux'; 
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import "regenerator-runtime/runtime.js";
 import { BrowserRouter } from 'react-router-dom';
 import MyInfoReducer from './reducers/reducer';
 import App from './app';
