@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './components/home/home';
+import Login from './components/login/login';
 
 const App = () => (
     <>
-        <Home />
+        <Login />
     </>
 );
 
