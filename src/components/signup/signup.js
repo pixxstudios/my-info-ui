@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {
+    onSignupRequest
+} from '../../actions/actions';
 
 const Signup = () => {
+    const dispatch = useDispatch();
+
     const handleOnSubmit = e => {
         e.preventDefault();
         
+        dispatch(onSignupRequest);
         console.log('handleOnSubmit');
     };
 
