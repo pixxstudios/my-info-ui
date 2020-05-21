@@ -5,13 +5,13 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import "regenerator-runtime/runtime.js";
 import { BrowserRouter } from 'react-router-dom';
-import MyInfoReducer from './reducers/reducer';
+import mainReducer from './reducers/reducer';
 import App from './app';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
 
 const store = createStore(
-    MyInfoReducer,
+    mainReducer,
     composeEnhancer(applyMiddleware(thunk))
     );
 

@@ -2,12 +2,14 @@ import axios from 'axios';
 
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 
-export const onSignupRequest = () => {
+export const onSignupRequest = (dispatch) => {
     axios.get('http://localhost:9001/test')
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err))
-
-    return (dispatch) => dispatch({
-        type: SIGNUP_REQUEST
+    .then(response => {
+        console.log('response ', response);
+        dispatch({
+            type: SIGNUP_REQUEST,
+            payload: response
+        })
     })
+    .catch(err => console.log(err));        
 };
