@@ -31,10 +31,6 @@ app.use(loginRoute);
 app.use(registerRoute);
 app.use(fileUploadRoute);
 
-app.get('/', (req, res) => {
-    res.send('hey');
-});
-
 app.use('*', () => {
     res.status(404).send('invalid url')
 });

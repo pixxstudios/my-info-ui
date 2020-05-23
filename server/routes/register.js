@@ -7,6 +7,7 @@ const {
 const SALT_ROUNDS = 10;
 
 registerRoute.post('/register', async (req, res, next) => {
+    console.log(req.body);
     let password = req.body.password;
     const email = req.body.email;
 

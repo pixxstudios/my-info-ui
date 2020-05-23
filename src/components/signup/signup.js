@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
@@ -6,11 +6,14 @@ import {
 } from '../../actions/actions';
 
 const Signup = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
     const handleOnSubmit = e => {
         e.preventDefault();
-        onSignupRequest(dispatch);
+        console.log(e);
+        onSignupRequest(dispatch, email, password);
         console.log('handleOnSubmit');
     };
 
@@ -18,12 +21,14 @@ const Signup = () => {
         <form action="post" onSubmit={handleOnSubmit}>
             <div>
                 <label htmlFor="email">Email</label>
-                <input type="email" required autoComplete="false" name="email" />
+                <input type="email" required autoComplete="false" name="email"
+                    onChange={ e => setEmail(e.target.value) } />
             </div>
 
             <div>
                 <label htmlFor="password">Password</label>
-                <input type="password" required autoComplete="false" name="password" />
+                <input type="password" required autoComplete="false" name="password"
+                    onChange={ e => setPassword(e.target.value) }/>
             </div>
 
             <div>
