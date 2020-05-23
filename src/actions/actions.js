@@ -19,7 +19,8 @@ export const onSignupRequest = (dispatch, email, password) => {
         } else{
             dispatch({
                 type: SIGNUP_SUCCESS,
-                payload: response
+                payload: response,
+                message: response.data.message
             })
         }
     })

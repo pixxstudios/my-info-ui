@@ -41,7 +41,7 @@ registerRoute.post('/register', async (req, res, next) => {
                         user.save()
                             .then(() => {
                                 res.status(200).json({
-                                    message: 'Register successful'
+                                    message: 'Signup successful'
                                 });
                             })
                             .catch(error => {

@@ -11,7 +11,7 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { errorMessage } = useSelector(state => state);
+    const { message } = useSelector(state => state);
 
     const handleOnSubmit = e => {
         e.preventDefault();
@@ -36,7 +36,7 @@ const Signup = () => {
                 <button type="submit">Signup</button>
             </div>
         </form>
-        <div>{errorMessage}</div>
+        <div>{message}</div>
         <Link to="/">Login</Link>
     </div>)
 };

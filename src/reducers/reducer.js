@@ -2,7 +2,7 @@ import * as actions from '../actions/actions';
 
 const intitalState = {
     showLoader: false,
-    errorMessage: ''
+    message: ''
 };
 
 const mainReducer = (state = intitalState, action) => {
@@ -10,19 +10,20 @@ const mainReducer = (state = intitalState, action) => {
     case actions.SIGNUP_REQUEST: {
         return { ...state,
         showLoader: true,
-        errorMessage: '' }
+        message: '' }
     }
 
     case actions.SIGNUP_SUCCESS: {
         return { ...state,
             showLoader: false,
-            data: action.payload.data }
+            data: action.payload.data,
+            message: action.message }
     }
 
     case actions.SIGNUP_FAILURE: {
         return { ...state,
             showLoader: false,
-            errorMessage: action.message }
+            message: action.message }
     }
 
     default:
