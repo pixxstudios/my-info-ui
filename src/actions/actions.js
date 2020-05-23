@@ -5,7 +5,6 @@ export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 export const onSignupRequest = (dispatch, email, password) => {
     axios.post('http://localhost:9001/register', {email, password})
     .then(response => {
-        console.log('response ', response);
         dispatch({
             type: SIGNUP_REQUEST,
             payload: response

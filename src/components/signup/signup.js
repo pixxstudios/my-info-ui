@@ -12,9 +12,7 @@ const Signup = () => {
 
     const handleOnSubmit = e => {
         e.preventDefault();
-        console.log(e);
         onSignupRequest(dispatch, email, password);
-        console.log('handleOnSubmit');
     };
 
     return (<div>
