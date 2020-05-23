@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     onSignupRequest
 } from '../../actions/actions';
 
 const Signup = () => {
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const dispatch = useDispatch();
+
+    const { errorMessage } = useSelector(state => state);
 
     const handleOnSubmit = e => {
         e.preventDefault();
@@ -33,7 +36,7 @@ const Signup = () => {
                 <button type="submit">Signup</button>
             </div>
         </form>
-
+        <div>{errorMessage}</div>
         <Link to="/">Login</Link>
     </div>)
 };

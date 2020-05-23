@@ -33,7 +33,7 @@ registerRoute.post('/register', async (req, res, next) => {
                 })
                 .then(response => {
                     if (response !== null) {
-                        res.status(422).json({
+                        res.status(200).json({
                             error: 'Email already exists.'
                         });
                     } else {
