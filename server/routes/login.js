@@ -10,10 +10,6 @@ const {
 
 const requireSignIn = passport.authenticate('local', { session: false });
 
-loginRoute.get('/test', (req, res) => {
-    res.status(200).send('working fine...');
-});
-
 loginRoute.post('/login', requireSignIn,  (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;

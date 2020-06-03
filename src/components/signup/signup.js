@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     onSignupRequest
 } from '../../actions/actions';
+import './style.scss';
 
 const Signup = () => {
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Signup = () => {
                 <button type="submit">Signup</button>
             </div>
         </form>
-        <div>{message}</div>
+        <div className="message">{message}</div>
         <Link to="/">Login</Link>
     </div>)
 };

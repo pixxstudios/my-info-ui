@@ -21,7 +21,27 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+        },
+        {
+            loader: 'css-loader',
+            options: {
+                sourceMap: true,
+            },
+        },
+        {
+            loader: 'sass-loader',
+            options: {
+                sourceMap: true,
+            },
+        },
+        ]
+      },
     ]
   },
   plugins: [
