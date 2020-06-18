@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import Login from './components/login/login';
 import Signup from './components/signup/signup';
+import Home from './components/home/home';
+import './style.scss';
 
 const App = () => (
     <Router>
@@ -17,6 +19,9 @@ const App = () => (
                 </Route>
                 <Route path="/signup">
                     <Signup />
+                </Route>
+                <Route path="/home">
+                    <Home />
                 </Route>
             </Switch>
         </div>
