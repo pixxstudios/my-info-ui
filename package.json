@@ -19,7 +19,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build": "webpack",
     "server": "node ./server/server.js",
     "test": "jest",
