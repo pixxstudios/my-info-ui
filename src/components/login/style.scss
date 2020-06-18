@@ -1,0 +1,66 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: deepskyblue;
+    height: 100vh;
+    color: chocolate;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px;
+}
+
+button {
+    height: 30px;
+    width: 60px;
+    font-size: 16px;
+    border: none;
+    background-color: chocolate;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 70px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: darkcyan;
+    text-decoration: none;
+}
+
+.form-group {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    input {
+        font-size: 13px;
+        border: 1px solid black;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+}
