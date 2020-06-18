@@ -16,6 +16,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|ttf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
