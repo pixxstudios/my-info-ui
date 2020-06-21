@@ -16,7 +16,7 @@ const Login = () => (
             </div>
 
             <div className="footer">
-                <button type="submit">Login</button>
+                <button className="login-button" type="submit">Login</button>
                 <Link to="/signup" className="button signup">Signup</Link>
             </div>
         </form>

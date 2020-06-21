@@ -7,7 +7,7 @@
 
     background-color:$polished-pine;
     height: 100vh;
-    color: chocolate;
+    color: $polished-pine;
 }
 
 .card {
@@ -24,31 +24,34 @@
     font-size: 1.8rem;
 }
 
-button {
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: 3rem;
     width: 6rem;
     font-size: 1.6rem;
     border: none;
-    background-color: chocolate;
+    background-color: $copper;
     color: white;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-family: Roboto-Light;
+
+    &:hover {
+        background-color: darken($copper, 15%);
+    }
 }
 
 .signup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
+    @extend .login-button;
+
     width: 7rem;
-    font-size: 1.6rem;
-    border: none;
-    color: white;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    background-color: darkcyan;
     text-decoration: none;
+
+    &:hover {
+        background-color: darken($copper, 15%);
+    }
 }
 
 .form-group {
@@ -61,7 +64,6 @@ button {
         font-size: 1.3rem;
         border: 1px solid black;
         padding: 0.6rem;
-        font-family: Roboto-Light;
     }
 }
 
