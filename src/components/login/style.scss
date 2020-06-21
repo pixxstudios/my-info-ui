@@ -1,9 +1,11 @@
+@import "../../../styles/colors";
+
 .login {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: sienna;
+    background-color:$polished-pine;
     height: 100vh;
     color: chocolate;
 }
