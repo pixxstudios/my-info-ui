@@ -36,16 +36,16 @@ export const onLoginRequest = (dispatch, email, password) => {
         type: LOGIN_REQUEST
     });
 
-    axios.post('http://localhost:9001/register', {email, password})
+    axios.post('http://localhost:9001/login', {email, password})
     .then(response => {
         if (response.data.error) {
             dispatch({
-                type: SIGNUP_FAILURE,
+                type: LOGIN_SUCCESS,
                 message: response.data.error
             });
         } else{
             dispatch({
-                type: SIGNUP_SUCCESS,
+                type: LOGIN_FAILURE,
                 payload: response,
                 message: response.data.message
             })

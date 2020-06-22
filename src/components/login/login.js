@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
 
+import { onLoginRequest } from '../../actions/actions';
+
 const Login = () => {
     const dispatch = useDispatch();
 
@@ -13,7 +15,7 @@ const Login = () => {
 
     const handleOnSubmit = e => {
         e.preventDefault();
-        onSignupRequest(dispatch, email, password);
+        onLoginRequest(dispatch, email, password);
     };
 
     return (
