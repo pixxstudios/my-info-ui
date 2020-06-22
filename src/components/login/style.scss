@@ -8,67 +8,67 @@
     background-color:$polished-pine;
     height: 100vh;
     color: $polished-pine;
-}
 
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    width: 400px;
-    height: 300px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 1px 1px 20px;
-    font-size: 1.8rem;
-}
-
-.login-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 3rem;
-    width: 6rem;
-    font-size: 1.6rem;
-    border: none;
-    background-color: $copper;
-    color: white;
-    border-radius: 0.5rem;
-    cursor: pointer;
-
-    &:hover {
-        background-color: darken($copper, 15%);
+    .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+        width: 400px;
+        height: 300px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 20px;
+        font-size: 1.8rem;
     }
-}
-
-.signup {
-    @extend .login-button;
-
-    width: 7rem;
-    text-decoration: none;
-
-    &:hover {
-        background-color: darken($copper, 15%);
+    
+    .login-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        height: 3rem;
+        width: 6rem;
+        font-size: 1.6rem;
+        border: none;
+        background-color: $copper;
+        color: white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: darken($copper, 15%);
+        }
     }
-}
-
-.form-group {
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    input {
-        font-size: 1.3rem;
-        border: 1px solid black;
-        padding: 0.6rem;
+    
+    .signup {
+        @extend .login-button;
+    
+        width: 7rem;
+        text-decoration: none;
+    
+        &:hover {
+            background-color: darken($copper, 15%);
+        }
     }
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    width: 35%;
+    
+    .form-group {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    
+        input {
+            font-size: 1.3rem;
+            border: 1px solid black;
+            padding: 0.6rem;
+        }
+    }
+    
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+    }
 }
