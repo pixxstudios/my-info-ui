@@ -1,5 +1,16 @@
+@import "../../../styles/colors";
+
 .header {
-    background-color: lightseagreen;
-    min-height: 50px;
+    background-color: $polished-pine;
+    color: white;
+    min-height:5rem;
     width: 100%;
+    font-size:2rem;
+    padding: 1rem;
+
+    .logout {
+        float: right;
+        color: white;
+        font-size: 1.5rem;
+    }
 }
