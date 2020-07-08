@@ -2,13 +2,13 @@ const registerRoute = require('express').Router();
 const bcrypt = require('bcrypt');
 const {
     User
-} = require('../schemas/schemas');
+} = require('../models/model');
 
 const SALT_ROUNDS = 10;
 
 registerRoute.post('/register', async (req, res, next) => {
     try {
-    let password = req.body.password;
+        let password = req.body.password;
 
         // encrypt the password
         password = await bcrypt.hash(password, SALT_ROUNDS);

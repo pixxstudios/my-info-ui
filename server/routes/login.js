@@ -6,7 +6,7 @@ const passport = require('passport');
 require('../services/passport');
 const {
     User
-} = require('../schemas/schemas');
+} = require('../models/model');
 
 const requireSignIn = passport.authenticate('local', { session: false });
 
