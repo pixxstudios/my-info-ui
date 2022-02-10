@@ -40,7 +40,7 @@
     "jest": "^25.5.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.13",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
